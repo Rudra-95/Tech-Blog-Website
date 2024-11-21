@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThePhenomenalAchiever</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-clean-blog/5.1.1/css/clean-blog.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Lora', serif;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+    .masthead {
+      background-color: #343a40;
+      color: #fff;
+      padding: 15rem 0;
+      text-align: center;
+    }
+    .masthead h1 {
+      font-size: 3.5rem;
+    }
+    .masthead .subheading {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    .post-preview {
+      margin-bottom: 2rem;
+    }
+    .post-preview h2 {
+      font-size: 2.25rem;
+    }
+    .post-preview h3 {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    .post-preview .post-meta {
+      font-size: 1rem;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/mock">{{parameters['blog_name']}}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/mock">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/pic-bg.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="container"> 
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h1 class=""><span style="color: black;">Admin Panel</h1>
+          <h3 class="font-weight-light mb-0"><span style="color: black;">Manage your posts and change them</h3>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="post-preview">
+          <a href="post.html">
+        </div>
+
+        <a href="/dashboard"> <button class="btn btn-primary">Dashboard</button></a>
+        <a href="/logout"> <button class="btn btn-primary">Logout</button></a>
+     <hr>
+        <div class="post-preview">
+          <a href="post_tb.html"></a>
+        </div>
+
+        <h1>Add/Edit Post</h1>
+        <form name="sentMessage" id="contactForm" action="{% if post %}/edit/{{sr_no}}{% else %}/edit/0{% endif %}" method="post" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              <input type="text" class="form-control" placeholder="title" id="title" name='title' required data-validation-required-message="Please enter your name." value="{{post.title}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Tagline</label>
+              <input type="text" class="form-control" placeholder="tagline" id="tline" name='tline' required data-validation-required-message="Please enter your email address." value="{{post.tagline}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="text" class="form-control" placeholder="slug" id="slug" name='slug' required data-validation-required-message="Please enter your phone number." value="{{post.slug}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Content</label>
+              <textarea rows="5" class="form-control" placeholder="content" id="content" name='content' required data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Image File</label>
+              <input rows="5" class="form-control" placeholder="image" id="img_file" name='img_file'value={{post.img_file}}>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+          </div>
+        </form>
+
+        <!-- Pager -->
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Footer -->
+  <footer class="bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="{{parameters['tw_url']}}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{{parameters['fb_url']}}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{{parameters['gh_url']}}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-0">Copyright © The Phenomenal Achiever 2018</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
