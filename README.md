@@ -27,16 +27,16 @@ Welcome to **The Phenomenal Achiever** repository! This is a simple blog applica
 File-Structure
 ----------------------
 /phenomenal-achiever
-├── app.py                  # Flask app logic
-├── /templates              # HTML files
-│   ├── index.html          # Home page
-│   ├── about.html          # About page
-│   ├── contact.html        # Contact page
-│   ├── dashboard.html      # Admin dashboard
-│   └── edit.html           # Edit post page
-├── /static                 # Static files (CSS, images, JavaScript)
-│   ├── /img                # Image files
-│   └── /css                # CSS files
-├── /models                 # Models for database (e.g., Post)
-├── requirements.txt        # Python dependencies
-└── README.md               # This file
+├── app.py                  # Flask app logic                                                                                          
+├── /templates              # HTML files                                                                                          
+│   ├── index.html          # Home page                                                                                          
+│   ├── about.html          # About page                                                                                          
+│   ├── contact.html        # Contact page                                                                                          
+│   ├── dashboard.html      # Admin dashboard                                                                                          
+│   └── edit.html           # Edit post page                                                                                          
+├── /static                 # Static files (CSS, images, JavaScript)                                                                                          
+│   ├── /img                # Image files                                                                                          
+│   └── /css                # CSS files                                                                                          
+├── /models                 # Models for database (e.g., Post)                                                                                          
+├── requirements.txt        # Python dependencies                                                                                          
+└── README.md               # This file                                                                                          
