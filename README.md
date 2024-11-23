@@ -26,7 +26,7 @@ Welcome to **The Phenomenal Achiever** repository! This is a simple blog applica
 
 File-Structure
 ----------------------
-/phenomenal-achiever
+/phenomenal-achiever                                                                                          
 ├── app.py                  # Flask app logic                                                                                          
 ├── /templates              # HTML files                                                                                          
 │   ├── index.html          # Home page                                                                                          
